@@ -17,7 +17,7 @@
             text-align: center;
             color: rgb(69, 110, 171);
             background: url('WhatsApp Image 2024-06-05 at 17.39.44.jpeg') no-repeat center center fixed;
-            background-size: 50% auto; /* Reduced background image size */
+            background-size: 50% auto;
         }
         header {
             width: 100%;
@@ -46,8 +46,17 @@
         }
         .headings a, .account a {
             text-decoration: none;
-            color: rgb(69, 110, 171);
             font-weight: bold;
+        }
+        .headings a[href="#home"], 
+        .headings a[href="#about"], 
+        .headings a[href="#prices"],
+        .headings a[href="#contact"]
+        {
+            color: black; /* Change the color to black for specific links */
+        }
+        .account a {
+            color: rgb(69, 110, 171); /* Keep other links as original color */
         }
         .dropdown-content {
             display: none;
