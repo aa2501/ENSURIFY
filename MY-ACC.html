@@ -48,6 +48,14 @@
             color: rgb(69, 110, 171);
             font-weight: bold;
         }
+        .headings a[href="home.html"], 
+        .headings a[href="#about"], 
+        .headings a[href="#prices"] {
+            color: black; /* Change the color to black for specific links */
+        }
+        .account a {
+            color: rgb(69, 110, 171); /* Keep other links as original color */
+        }
         .dropdown-content {
             display: none;
             position: absolute;
@@ -82,10 +90,12 @@
             font-size: 4em;
             font-weight: bold;
             margin-bottom: 20px;
+            color: white; /* Set title color to white */
         }
         .input-container {
             position: relative;
             width: 300px;
+            margin-bottom: 20px; /* Space between input and buttons */
         }
         .input-container input {
             width: 100%;
@@ -98,6 +108,33 @@
         }
         .input-container input:focus {
             border-color: rgb(45, 85, 156); /* Darker blue on focus */
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between buttons */
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sign-in {
+            background-color: rgb(69, 110, 171);
+            color: white;
+        }
+        .sign-in:hover {
+            background-color: rgb(45, 85, 156); /* Darker shade on hover */
+        }
+        .create-account {
+            background-color: transparent;
+            color: rgb(69, 110, 171);
+            border: 2px solid rgb(69, 110, 171);
+        }
+        .create-account:hover {
+            background-color: rgba(69, 110, 171, 0.1); /* Light background on hover */
         }
         @media (max-width: 768px) {
             .title {
@@ -123,7 +160,6 @@
             <ul class="headings">
                 <li>
                     <a href="home.html">Home</a>
-                
                 </li>
                 <li>
                     <a href="#about">About Us</a>
@@ -164,6 +200,11 @@
         <div class="title">Ensurify</div>
         <div class="input-container">
             <input type="text" placeholder="Email address">
+            <input type="password" placeholder="Password">
+        </div>
+        <div class="button-container">
+            <button class="sign-in">Sign In</button>
+            <button class="create-account">Create Free Account</button>
         </div>
     </div>
 </body>
