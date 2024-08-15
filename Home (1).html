@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(69, 110, 171);
+            background: url('WhatsApp Image 2024-06-05 at 17.39.44.jpeg') no-repeat center center fixed;
+            background-size: 50% auto;
+        }
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between; /* Align items to both ends */
+            padding: 0 20px; /* Add padding to left and right */
+        }
+        .headings, .account {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px; /* Space between links */
+        }
+        .headings li, .account li {
+            margin: 0;
+            padding: 0;
+            position: relative; /* Needed for dropdown positioning */
+        }
+        .headings a, .account a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .headings a[href="#home"], 
+        .headings a[href="#about"], 
+        .headings a[href="#prices"],
+        .headings a[href="#contact"]
+        {
+            color: black; /* Change the color to black for specific links */
+        }
+        .account a {
+            color: rgb(69, 110, 171); /* Keep other links as original color */
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 160px;
+        }
+        .dropdown-content a {
+            color: rgb(69, 110, 171);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(69, 110, 171, 0.1);
+        }
+        li:hover .dropdown-content {
+            display: block;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .title {
+            font-size: 2.5em; /* Reduced font size */
+            font-weight: bold;
+            margin-top: 60px; /* Adjust for the header */
+        }
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2em;
+            }
+        }
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="headings">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About Us</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#report">Annual Report</a></li>
+                        <li><a href="#report">Sustainability Report</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#prices">Prices</a>
+                    <ul class="dropdown-content">
+                        <li><a href="life-insur.html">Life Insurance</a></li>
+                        <li><a href="#vehicle">Vehicle Insurance</a></li>
+                        <li><a href="#pet">Pet Insurance</a></li>
+                        <li><a href="#home-ins">Home Insurance</a></li>
+                        <li><a href="para-insur.html">Parametric Insurance</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#email">Email</a></li>
+                        <li><a href="#phone">Phone</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="account">
+                <li>
+                    <a href="MY-ACC.html">My Account</a>
+                    <ul class="dropdown-content">
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="signout.html">Sign Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
