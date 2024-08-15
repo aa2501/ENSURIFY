@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametric Insurance - Flight Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(69, 110, 171);
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between; /* Align items to both ends */
+            padding: 0 20px; /* Add padding to left and right */
+        }
+        .headings, .account {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px; /* Space between links */
+        }
+        .headings li, .account li {
+            margin: 0;
+            padding: 0;
+            position: relative; /* Needed for dropdown positioning */
+        }
+        .headings a, .account a {
+            text-decoration: none;
+            color: rgb(69, 110, 171);
+            font-weight: bold;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 160px;
+        }
+        .dropdown-content a {
+            color: rgb(69, 110, 171);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(69, 110, 171, 0.1);
+        }
+        li:hover .dropdown-content {
+            display: block;
+        }
+        .container {
+            margin-top: 120px; /* Ensures that the container isn't hidden under the header */
+            width: 100%;
+            max-width: 500px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button {
+            padding: 10px;
+            background-color: rgb(69, 110, 171);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: rgb(50, 80, 130);
+        }
+        a {
+            text-decoration: none;
+            color: rgb(69, 110, 171);
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header>
+        <nav>
+            <ul class="headings">
+                <li><a href="#home">Home</a></li>
+                <li>
+                    <a href="#about">About Us</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#report">Annual Report</a></li>
+                        <li><a href="#report">Sustainability Report</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#prices">Prices</a>
+                    <ul class="dropdown-content">
+                        <li><a href="life-insur.html">Life Insurance</a></li>
+                        <li><a href="#vehicle">Vehicle Insurance</a></li>
+                        <li><a href="#pet">Pet Insurance</a></li>
+                        <li><a href="#home-ins">Home Insurance</a></li>
+                        <li><a href="para-insur.html">Parametric Insurance</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="account">
+                <li>
+                    <a href="MY-ACC.html">My Account</a>
+                    <ul class="dropdown-content">
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="signout.html">Sign Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <form action="submit-flight-details.html" method="POST">
+            <label for="flight-date">What is the date of your upcoming flight?</label>
+            <input type="date" id="flight-date" name="flight-date" required>
+
+            <label for="flight-number">What is your flight number and airline?</label>
+            <input type="text" id="flight-number" name="flight-number" placeholder="e.g., AA123, American Airlines" required>
+
+            <label for="flight-type">Is this a one-way flight or round-trip?</label>
+            <select id="flight-type" name="flight-type" required>
+                <option value="one-way">One-way</option>
+                <option value="round-trip">Round-trip</option>
+            </select>
+
+            <label for="airports">What is the departure and destination airport?</label>
+            <input type="text" id="airports" name="airports" placeholder="e.g., JFK to LAX" required>
+
+            <label for="layovers">Are there any layovers, and if so, where and for how long?</label>
+            <input type="text" id="layovers" name="layovers" placeholder="e.g., Denver for 2 hours" required>
+
+            <!-- Insurance Coverage Questions -->
+            <label for="coverage-type">What type of coverage are you interested in?</label>
+            <select id="coverage-type" name="coverage-type" required>
+                <option value="flight-delay">Flight Delay</option>
+                <option value="cancellation">Cancellation</option>
+                <option value="baggage-loss">Baggage Loss</option>
+                <option value="medical-emergencies">Medical Emergencies</option>
+            </select>
+
+            <label for="missed-connections">Do you want coverage for missed connections or delays?</label>
+            <select id="missed-connections" name="missed-connections" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="trip-interruptions">Would you like to add coverage for trip interruptions or cancellations due to unexpected events (e.g., illness, weather conditions)?</label>
+            <select id="trip-interruptions" name="trip-interruptions" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="medical-coverage">Do you want medical coverage during your trip, including emergency medical evacuation?</label>
+            <select id="medical-coverage" name="medical-coverage" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="baggage-coverage">Would you like to include baggage loss or delay coverage?</label>
+            <select id="baggage-coverage" name="baggage-coverage" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="trip-delays">Are you interested in covering trip delays due to airline strikes, air traffic control issues, or mechanical failures?</label>
+            <select id="trip-delays" name="trip-delays" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <!-- Additional Questions -->
+            <label for="medical-conditions">Do you have any pre-existing medical conditions that may require coverage?</label>
+            <textarea id="medical-conditions" name="medical-conditions" placeholder="Please describe any conditions" required></textarea>
+
+            <label for="emergency-medical-abroad">Would you like to add coverage for emergency medical care abroad?</label>
+            <select id="emergency-medical-abroad" name="emergency-medical-abroad" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="emergency-evacuation">Do you want coverage for emergency medical evacuation?</label>
+            <select id="emergency-evacuation" name="emergency-evacuation" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="flight-delay-coverage">Do you want coverage for flight delays beyond a certain number of hours?</label>
+            <select id="flight-delay-coverage" name="flight-delay-coverage" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="coverage-amount">What is your preferred coverage amount for delays (e.g., compensation for meals, accommodations)?</label>
+            <input type="text" id="coverage-amount" name="coverage-amount" placeholder="Enter your preferred amount" required>
+
+            <label for="flight-cancellation">Do you want protection in case the flight is canceled by the airline?</label>
+            <select id="flight-cancellation" name="flight-cancellation" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="personal-trip-cancellation">Would you like trip cancellation coverage if you cannot fly due to illness or other personal reasons?</label>
+            <select id="personal-trip-cancellation" name="personal-trip-cancellation" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="missed-connecting-flights">Do you need coverage for missed connecting flights due to delays?</label>
+            <select id="missed-connecting-flights" name="missed-connecting-flights" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="rebooking-costs">Would you like coverage for rebooking costs or accommodation expenses if you miss a connection?</label>
+            <select id="rebooking-costs" name="rebooking-costs" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="policy-type">Are you interested in a basic policy with lower premiums or a comprehensive policy with more extensive coverage?</label>
+            <select id="policy-type" name="policy-type" required>
+                <option value="basic">Basic Policy</option>
+                <option value="comprehensive">Comprehensive Policy</option>
+            </select>
+
+            <label for="optional-coverage">Would you like to add optional coverage for additional fees (e.g., adventure activities, sports equipment)?</label>
+            <select id="optional-coverage" name="optional-coverage" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="specific-risks">Do you want coverage for specific risks like extreme weather or political unrest in your destination country?</label>
+            <select id="specific-risks" name="specific-risks" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="rental-car-coverage">Are you interested in covering rental cars or transportation during your trip?</label>
+            <select id="rental-car-coverage" name="rental-car-coverage" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="payment-method">How would you prefer to pay for your insurance policy (e.g., credit card, bank transfer)?</label>
+            <input type="text" id="payment-method" name="payment-method" placeholder="Enter payment method" required>
+
+            <label for="special-requests">Do you have any special requests or documentation that may affect your coverage needs (e.g., business travel, group bookings)?</label>
+            <textarea id="special-requests" name="special-requests" placeholder="Enter any special requests or documentation" required></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Flight Details</button>
+        </form>
+
+    
+    </div>
+</body>
+</html>
