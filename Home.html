@@ -11,7 +11,6 @@
             width: 100%;
             font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
@@ -46,13 +45,12 @@
         }
         .headings a, .account a {
             text-decoration: none;
+            color: rgb(69, 110, 171);
             font-weight: bold;
         }
-        .headings a[href="#home"], 
+        .headings a[href="home.html"], 
         .headings a[href="#about"], 
-        .headings a[href="#prices"],
-        .headings a[href="#contact"]
-        {
+        .headings a[href="#prices"] {
             color: black; /* Change the color to black for specific links */
         }
         .account a {
@@ -82,26 +80,77 @@
             display: block;
         }
         .container {
-            position: relative;
-            width: 100%;
-            height: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            height: 100%;
         }
         .title {
-            font-size: 2.5em; /* Reduced font size */
+            font-size: 4em;
             font-weight: bold;
-            margin-top: 60px; /* Adjust for the header */
+            margin-bottom: 20px;
+            color: white; /* Set title color to white */
+        }
+        .input-container {
+            position: relative;
+            width: 300px;
+            margin-bottom: 20px; /* Space between input and buttons */
+        }
+        .input-container input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid rgb(69, 110, 171);
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+            margin-bottom: 10px; /* Space between inputs */
+        }
+        .input-container input:focus {
+            border-color: rgb(45, 85, 156); /* Darker blue on focus */
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between buttons */
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sign-in {
+            background-color: rgb(69, 110, 171);
+            color: white;
+        }
+        .sign-in:hover {
+            background-color: rgb(45, 85, 156); /* Darker shade on hover */
+        }
+        .create-account {
+            background-color: white;
+            color: rgb(69, 110, 171);
+            border: 2px solid rgb(69, 110, 171);
+        }
+        .create-account:hover {
+            background-color: rgba(69, 110, 171, 0.1); /* Light background on hover */
         }
         @media (max-width: 768px) {
             .title {
-                font-size: 2em;
+                font-size: 3em;
+            }
+            .input-container {
+                width: 250px;
             }
         }
         @media (max-width: 480px) {
             .title {
-                font-size: 1.5em;
+                font-size: 2em;
+            }
+            .input-container {
+                width: 200px;
             }
         }
     </style>
@@ -111,19 +160,18 @@
         <nav>
             <ul class="headings">
                 <li>
-                    <a href="#home">Home</a>
+                    <a href="home.html">Home</a>
                 </li>
                 <li>
                     <a href="#about">About Us</a>
                     <ul class="dropdown-content">
                         <li><a href="#report">Annual Report</a></li>
-                        <li><a href="#report">Sustainability Report</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#prices">Prices</a>
                     <ul class="dropdown-content">
-                        <li><a href="life-insur.html">Life Insurance</a></li>
+                        <li><a href="#life">Life Insurance</a></li>
                         <li><a href="#vehicle">Vehicle Insurance</a></li>
                         <li><a href="#pet">Pet Insurance</a></li>
                         <li><a href="#home-ins">Home Insurance</a></li>
@@ -149,5 +197,16 @@
         </nav>
     </header>
 
+    <div class="container">
+        <div class="title">Ensurify</div>
+        <div class="input-container">
+            <input type="text" placeholder="Email address">
+            <input type="password" placeholder="Password">
+        </div>
+        <div class="button-container">
+            <button class="sign-in">Sign In</button>
+            <button class="create-account">Create Free Account</button>
+        </div>
+    </div>
 </body>
 </html>
