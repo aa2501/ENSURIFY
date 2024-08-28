@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Insurance - Ensurify</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: rgb(69, 110, 171);
+            background-color: #f9f9f9;
+        }
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .headings, .account {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        .headings li, .account li {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .headings a, .account a {
+            text-decoration: none;
+            color: rgb(69, 110, 171);
+            font-weight: bold;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 160px;
+        }
+        .dropdown-content a {
+            color: rgb(69, 110, 171);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(69, 110, 171, 0.1);
+        }
+        li:hover .dropdown-content {
+            display: block;
+        }
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6em;
+            margin-bottom: 20px;
+        }
+        .questionnaire {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .questionnaire label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .questionnaire input[type="text"],
+        .questionnaire input[type="date"],
+        .questionnaire input[type="number"],
+        .questionnaire select,
+        .questionnaire textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .questionnaire input[type="radio"],
+        .questionnaire input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .questionnaire input[type="submit"] {
+            background-color: rgb(69, 110, 171);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .questionnaire input[type="submit"]:hover {
+            background-color: rgb(45, 85, 156);
+        }
+        .input-with-symbol {
+            display: flex;
+            align-items: center;
+        }
+        .input-with-symbol span {
+            margin-right: 10px;
+            font-size: 1em;
+        }
+        .input-with-symbol input[type="text"] {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="headings">
+                <li>
+                    <a href="home.html">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About Us</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#report">Annual Report</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#prices">Prices</a>
+                    <ul class="dropdown-content">
+                        <li><a href="life-insur.html">Life Insurance</a></li>
+                        <li><a href="#vehicle">Vehicle Insurance</a></li>
+                        <li><a href="#pet">Pet Insurance</a></li>
+                        <li><a href="#home-ins">Home Insurance</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#email">Email</a></li>
+                        <li><a href="#phone">Phone</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="account">
+                <li>
+                    <a href="MY-ACC.html">My Account</a>
+                    <ul class="dropdown-content">
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="signout.html">Sign Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <p>Please fill out the following form to submit your home insurance claim.</p>
+        <div class="questionnaire">
+            <form action="/submit_claim" method="post" enctype="multipart/form-data">
+                <label>Do you already have an account at Ensurify?</label>
+                <input type="radio" name="has_account" value="yes" required> Yes
+                <input type="radio" name="has_account" value="no"> No
+
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="address">Home Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="policyNumber">Policy Number:</label>
+                <input type="text" id="policyNumber" name="policyNumber" required>
+
+                <label for="incidentDate">Date of Incident:</label>
+                <input type="date" id="incidentDate" name="incidentDate" required>
+
+                <label for="incidentDescription">Description of Incident:</label>
+                <textarea id="incidentDescription" name="incidentDescription" rows="4" required></textarea>
+
+                <label for="damageDescription">Description of Damage:</label>
+                <textarea id="damageDescription" name="damageDescription" rows="4" required></textarea>
+
+                <label for="damagePhoto">Upload a Photo of Damage:</label>
+                <input type="file" id="damagePhoto" name="damagePhoto" accept="image/*" required>
+
+                <label for="estimatedLoss">Estimated Loss Amount:</label>
+                <div class="input-with-symbol">
+                    <span>£</span>
+                    <input type="text" id="estimatedLoss" name="estimatedLoss" required>
+                </div>
+
+                <input type="submit" value="Submit Claim">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
